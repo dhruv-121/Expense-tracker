@@ -49,10 +49,11 @@ function createTransactionElement(transaction){
     //todo update amount
     li.innerHTML = `
     <span>${transaction.description}</span>
-    <span>${formatCurrency(transaction.amount)}
-    <button class="delete-btn" onclick="removeTransaction(${transaction.id})">x</button>
+    <span>
+        ${formatCurrency(transaction.amount)}
+        <button class="delete-btn" onclick="removeTransaction(${transaction.id})">x</button>
     </span>
-    `;
+`;
 
     return li;
 }
@@ -75,9 +76,9 @@ function updateSummary(){
 }
 
 function formatCurrency(number){
-    return new Intl.NumberFormat("en-US", {
+    return new Intl.NumberFormat("en-IN", {
   style: "currency",
-  currency: "IN",
+  currency: "INR",
 }).format(number);
 
 }
@@ -92,4 +93,5 @@ updateTransactionList();
 
 //inital render
 updateSummary();
+
 updateTransactionList();
